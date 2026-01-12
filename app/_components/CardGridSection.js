@@ -30,7 +30,7 @@ export default function CardGridSection() {
         description:
           "Pelajari solusi pengelolaan portofolio dan kerja sama strategis dengan KIWI.",
         buttonTitle: "Pelajari Solusi Portofolio",
-        buttonUrl: "/portfolio",
+        buttonUrl: "#portfolio-form",
       },
     ],
     en: [
@@ -81,31 +81,45 @@ export default function CardGridSection() {
                   hover:shadow-xl
                 "
               >
-                {/* ICON */}
                 <div className="mb-4 flex items-center justify-center w-14 h-14 rounded-full bg-primary-50">
                   <Icon className="w-7 h-7 text-primary-950" />
                 </div>
 
-                {/* TITLE */}
                 <H1 className="text-xl md:text-2xl font-bold mb-3">
                   {card.title}
                 </H1>
 
-                {/* DESCRIPTION */}
                 <p className="text-gray-700 text-sm md:text-base mb-6">
                   {card.description}
                 </p>
 
-                {/* BUTTON */}
                 {card.buttonTitle && card.buttonUrl && (
-                  <Button
-                    size="medium"
-                    variation="primary"
-                    href={`/${lang}${card.buttonUrl}`}
-                  >
-                    {card.buttonTitle}
-                  </Button>
-                )}
+                    card.buttonUrl.startsWith("#") ? (
+                      <Button
+                        size="medium"
+                        variation="primary"
+                        onClick={() => {
+                          const el = document.getElementById(
+                            card.buttonUrl.replace("#", "")
+                          );
+                          if (el) {
+                            el.scrollIntoView({ behavior: "smooth" });
+                          }
+                        }}
+                      >
+                        {card.buttonTitle}
+                      </Button>
+                    ) : (
+                      <Button
+                        size="medium"
+                        variation="primary"
+                        href={`/${lang}${card.buttonUrl}`}
+                      >
+                        {card.buttonTitle}
+                      </Button>
+                    )
+                  )}
+
               </div>
             );
           })}

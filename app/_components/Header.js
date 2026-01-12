@@ -30,7 +30,7 @@ export default function Header() {
   return (
     <header
       className={`
-        sticky top-0 w-full z-50 border-b border-primary-900 bg-white
+        sticky top-0 w-full z-30 border-b border-primary-900 bg-white
         transition-transform duration-300 ease-in-out
         px-4 md:px-12
         ${show ? "translate-y-0" : "-translate-y-full"}
@@ -52,5 +52,6 @@ export default function Header() {
         </div>
       </div>
     </header>
+    
   );
 }

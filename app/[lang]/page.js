@@ -43,6 +43,7 @@ export default function Page() {
   const firstContent = data[0] || {};
   const title = firstContent.title || "";
   const subtitle = firstContent.subtitle || "";
+  const btitle = firstContent.action_label || "Test";
 
 const stepsCopy = {
   id: [
@@ -411,6 +412,7 @@ const advantageContent = KIWI_ADVANTAGES[lang] || KIWI_ADVANTAGES.id;
       : "Hubungi Kami";
   return (
     <>
+    <div className="bg-black"></div>
       <BannerCarousel
         images={allImages}
         title={title}
@@ -420,6 +422,7 @@ const advantageContent = KIWI_ADVANTAGES[lang] || KIWI_ADVANTAGES.id;
         dots={true}
         dotPlacement="bottom"
         height="70vh"
+        buttontitle={btitle}
       />
       <CardGridSection/>
       <HomeApproach/>
@@ -470,7 +473,10 @@ const advantageContent = KIWI_ADVANTAGES[lang] || KIWI_ADVANTAGES.id;
 
       <PartnershipCTA />
 
-      <div className="min-h-screen bg-[#f6f8fc] py-12 px-4">
+      <div
+        id="portfolio-form"
+        className="min-h-screen bg-[#f6f8fc] py-12 px-4 scroll-mt-24"
+      >
         <H1 className="text-center">
           {titleContat}
         </H1>
@@ -481,6 +487,8 @@ const advantageContent = KIWI_ADVANTAGES[lang] || KIWI_ADVANTAGES.id;
           </div>
         </div>
       </div>
+
+
 
       <HomeHighlight />
       <People />

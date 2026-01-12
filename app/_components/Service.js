@@ -41,9 +41,11 @@ export default function Service() {
               sizes="(max-width: 768px) 100vw, 20rem"
             />
           </div>
+
           <div className="flex-1 flex flex-col justify-center p-6 gap-4 md:gap-6">
             <H1>{item.title}</H1>
             <p className="text-base text-gray-600">{item.short_desc}</p>
+
             {item.slug ? (
               <Link href={`/${lang}/services/${item.slug}`} className="w-max">
                 <Button size="large">
@@ -51,6 +53,7 @@ export default function Service() {
                 </Button>
               </Link>
             ) : null}
+            
           </div>
         </AnimatedDiv>
       ))}

@@ -7,9 +7,11 @@ import Breadcrumbs from "@/app/_components/Breadcrumbs";
 import Container from "@/app/_components/Container";
 import { useGetServiceSlug } from "@/app/pages/hooks/useGetServiceSlug";
 import NoData from "@/app/_components/NoData";
+import CekTagihanPage from "@/app/_components/BillReview";
 
 const componentMap = {
   "asset-management": AssetManagement,
+  "bill-review" : CekTagihanPage,
 };
 
 export default function ServiceDetailPage() {

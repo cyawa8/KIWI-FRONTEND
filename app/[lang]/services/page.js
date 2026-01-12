@@ -39,6 +39,7 @@ export default function Page() {
           <h2>{t.desc2}</h2>
         </AnimatedParagraph>
       </div>
+      
       <Service lang={lang}/>
     </Container>
   );

@@ -36,6 +36,17 @@ const PARTNERSHIP_COPY = {
   },
 };
 
+const CONTACT = {
+  whatsappNumber: "622150928827",
+  whatsappMessage: {
+    id: "Halo KIWI, saya ingin menjadwalkan diskusi terkait portofolio. Mohon informasinya. Terima kasih.",
+    en: "Hello KIWI, I would like to schedule a portfolio discussion. Please advise. Thank you.",
+  },
+  email: "mitra@kiwi.co.id",
+};
+
+
+
 export default function PartnershipCTA() {
   const { lang } = useParams();
   const t = PARTNERSHIP_COPY[lang] || PARTNERSHIP_COPY.id;
@@ -62,14 +73,29 @@ export default function PartnershipCTA() {
           <div className="flex flex-col items-center gap-2">
             <EnvelopeIcon className="w-6 h-6 text-primary-300" />
             <span className="text-sm text-gray-300">{t.labels.email}</span>
-            <span className="font-medium">mitra@kiwi.co.id</span>
+            <a
+              href={`mailto:${CONTACT.email}`}
+              className="font-medium hover:underline"
+            >
+              {CONTACT.email}
+            </a>
           </div>
 
           <div className="flex flex-col items-center gap-2">
             <PhoneIcon className="w-6 h-6 text-primary-300" />
             <span className="text-sm text-gray-300">{t.labels.phone}</span>
-            <span className="font-medium">+62 21 509 28827</span>
+            <a
+              href={`https://wa.me/${CONTACT.phone}?text=${encodeURIComponent(
+                CONTACT.whatsappMessage
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium hover:underline"
+            >
+              +62 21 509 28827
+            </a>
           </div>
+
 
           <div className="flex flex-col items-center gap-2">
             <BuildingOffice2Icon className="w-6 h-6 text-primary-300" />
@@ -81,26 +107,40 @@ export default function PartnershipCTA() {
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button
+          <a
+            href={`https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(
+              CONTACT.whatsappMessage[lang] || CONTACT.whatsappMessage.id
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="
               px-8 py-4 rounded-full
               bg-primary-950 text-primary-0 font-semibold
               hover:bg-yellow-300 transition
+              text-center
             "
           >
             {t.primaryButton}
-          </button>
+          </a>
 
-          <button
+
+          <a
+            href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(
+              "Proposal Kemitraan – PT KIWI"
+            )}&body=${encodeURIComponent(
+              "Halo PT KIWI,\n\nKami tertarik untuk mengajukan proposal kemitraan awal.\n\nTerima kasih."
+            )}`}
             className="
               px-8 py-4 rounded-full
               bg-white/10 text-white font-semibold
               border border-white/30
               hover:bg-white/20 transition
+              text-center
             "
           >
             {t.secondaryButton}
-          </button>
+          </a>
+
         </div>
       </div>
     </section>

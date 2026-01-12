@@ -1,7 +1,8 @@
 import { useState } from "react";
-import Form from "@/app/_components/Form";
 import Button from "@/app/_components/Button";
 import toast from "react-hot-toast";
+import Form from "./Form";
+
 
 const TEXT = {
   id: {

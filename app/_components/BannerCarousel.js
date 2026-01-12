@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Carousel } from "antd";
 import Container from "./Container";
 import H1 from "./H1";
+import Link from "next/link";
 
 export default function BannerCarousel({
   images = [],
@@ -12,10 +13,14 @@ export default function BannerCarousel({
   autoplay = true,
   arrows = true,
   dots = true,
+  buttontitle = "",
+  buttonurl = "",
   dotPlacement = "bottom",
   height = "70vh",
 }) {
+
   if (!Array.isArray(images) || images.length === 0) return null;
+
 
   return (
     <div className="w-full">
@@ -48,6 +53,21 @@ export default function BannerCarousel({
                     {subtitle}
                   </p>
                 )}
+                {buttonurl && (
+                    <Link
+                      href={buttonurl}
+                      className="
+                        mt-8 inline-flex items-center justify-center
+                        px-8 py-3 rounded-full
+                        bg-primary-950 text-white font-semibold
+                        hover:bg-primary-800 transition
+                      "
+                    >
+                      {buttontitle}
+                    </Link>
+                  )
+                }
+
               </div>
               </Container>
             )}
