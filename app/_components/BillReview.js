@@ -121,7 +121,7 @@ export default function CekTagihanPage() {
                 {data.attachment_file && (
                 <a
                 
-                    href={`http://localhost:8001/storage/${data.attachment_file}`}
+                    href={`https://api.kiwi.co.id/storage/${data.attachment_file}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
@@ -138,7 +138,7 @@ export default function CekTagihanPage() {
                 {data.attachment_image && (
                 <div className="mt-3">
                     <Image
-                    src={`http://localhost:8001/storage/${data.attachment_image}`}
+                    src={`https://api.kiwi.co.id/storage/${data.attachment_image}`}
                     alt="Foto Tagihan"
                     width={400}
                     height={300}

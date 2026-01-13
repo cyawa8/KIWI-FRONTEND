@@ -33,7 +33,7 @@ export default function BannerCarousel({
         {images.map((img, index) => (
           <div key={index} className="relative w-full h-[80vh]">
             <Image
-              src={`http://localhost:8001/storage/${img}`}
+              src={`https://api.kiwi.co.id/storage/${img}`}
               alt={title}
               fill
               priority={index === 0}

@@ -38,7 +38,7 @@ export default function AssetDetailPage() {
     return;
   }
 
-  fetch(`http://localhost:8001/api/${config.endpoint}/${id}?lang=${lang}`)
+  fetch(`https://api.kiwi.co.id/api/${config.endpoint}/${id}?lang=${lang}`)
     .then(res => res.json())
     .then(data => {
       setAsset(data);
